@@ -95,6 +95,9 @@ map <silent> <C-e> :NERDTreeToggle<CR>
 " close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=1
 
+" To use fzf in Vim, add the following line to your .vimrc:
+set rtp+=/usr/local/opt/fzf
+
 " make FZF respect gitignore if `ag` is installed
 if (executable('ag'))
     let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
@@ -106,15 +109,15 @@ endif
 
 " disable auto_triggering ycm suggestions pane and instead
 " use semantic completion only on Ctrl+n
-let ycm_trigger_key = '<C-n>'
-let g:ycm_auto_trigger = 0
-let g:ycm_key_invoke_completion = ycm_trigger_key
+" let ycm_trigger_key = '<C-n>'
+" let g:ycm_auto_trigger = 0
+" let g:ycm_key_invoke_completion = ycm_trigger_key
 
 " this is some arcane magic to allow cycling through the YCM options
 " with the same key that opened it.
 " See http://vim.wikia.com/wiki/Improve_completion_popup_menu for more info.
-let g:ycm_key_list_select_completion = ['<TAB>', '<C-j>']
-inoremap <expr> ycm_trigger_key pumvisible() ? "<C-j>" : ycm_trigger_key
+" let g:ycm_key_list_select_completion = ['<TAB>', '<C-j>']
+" inoremap <expr> ycm_trigger_key pumvisible() ? "<C-j>" : ycm_trigger_key
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Linter Related Configs
