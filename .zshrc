@@ -152,6 +152,9 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# Personal Path
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/hippler/.sdkman/candidates/groovy/current/bin:/Users/hippler/.sdkman/candidates/grails/current/bin:/Users/hippler/.sdkman/candidates/gradle/current/bin:/usr/local/opt/fzf/bin:/usr/local/sbin"
+
 # Use nvim as the default editor
 export EDITOR=nvim
 
