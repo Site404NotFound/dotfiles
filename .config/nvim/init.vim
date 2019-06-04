@@ -11,6 +11,7 @@ set cursorline              " Find the current line quickly.
 set splitbelow              " Horizontal split below current
 set splitright              " Vertical split to right of current
 set noerrorbells            " Disable beeps and alerts
+set autoread                " Automatically reload file when changes are made
 set t_Co=256                " Set terminal to use 256 colors
 set nocp                    " Disable compatible mode
 
