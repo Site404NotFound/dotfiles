@@ -79,6 +79,12 @@ Plug 'w0rp/ale'
 " https://github.com/Valloric/YouCompleteMe
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
+" Vim Tmux Navigator
+" Seamless navigation between tmux panes and vim splits
+" https://github.com/christoomey/vim-tmux-navigator
+Plug 'christoomey/vim-tmux-navigator'
+
+" Update &runtimepath and initialize plugin system
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -177,6 +183,9 @@ set guioptions-=L
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Keymappings
 """""""""""""""""""""""""""""""""""""""""""""""
+
+" Use x to write/quit
+cmap x wq
 
 " dont use arrowkeys
 " Assigns arrow keys to No Operation (NOP) in Normal, Visual, Select, and
