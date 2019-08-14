@@ -51,7 +51,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " fzf.vim
 " A command-line fuzzy finder
 " https://github.com/junegunn/fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " vim-gitgutter
@@ -63,6 +63,11 @@ Plug 'airblade/vim-gitgutter'
 " lean & mean status/tabline for vim that's light as air
 " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline'
+
+" lightline
+" A light and configurable statusline/tabline plugin for Vim
+" https://github.com/itchyny/lightline.vim
+" Plug 'itchyny/lightline.vim'
 
 " vim-multiple-cursors
 " True Sublime Text style multiple selections for Vim
@@ -77,12 +82,29 @@ Plug 'w0rp/ale'
 " YouCompleteMe
 " A code-completion engine for Vim
 " https://github.com/Valloric/YouCompleteMe
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+" Deoplete
+" Dark powered asynchronous completion framework for neovim/Vim8
+" https://github.com/Shougo/deoplete.nvim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " Vim Tmux Navigator
 " Seamless navigation between tmux panes and vim splits
 " https://github.com/christoomey/vim-tmux-navigator
 Plug 'christoomey/vim-tmux-navigator'
+
+" Multiple Cursors
+" True Sublime Text style multiple selections for Vim
+" https://github.com/terryma/vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
 
 " Update &runtimepath and initialize plugin system
 call plug#end()
@@ -172,7 +194,8 @@ set laststatus=2
 " toggle invisible characters
 set invlist
 set list
-set listchars=tab:¦\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+" set listchars=tab:¦\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set listchars=tab:¦\ ,eol:¬,trail:⋅
 
 " disable scrollbars (real hackers don't use scrollbars)
 set guioptions-=r
@@ -185,7 +208,7 @@ set guioptions-=L
 """""""""""""""""""""""""""""""""""""""""""""""
 
 " Use x to write/quit
-cmap x wq
+" cmap x wq
 
 " dont use arrowkeys
 " Assigns arrow keys to No Operation (NOP) in Normal, Visual, Select, and
@@ -197,6 +220,8 @@ noremap <Right> <NOP>
 
 " really, just dont
 " Assigns arrows keys to No Operation (NOP) in Insert Mode
+" TODO: I BELIEVE THE MAPPING HERE IS WHY I CAN'T DO PREVIOUS PANE IN TMUX.
+" Need to fix eventually
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 inoremap <Left>  <NOP>
