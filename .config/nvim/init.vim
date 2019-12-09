@@ -28,6 +28,16 @@ call plug#begin()
 " https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
 
+" badwolf colorscheme
+" Modern Day bright color scheme for Vim
+" https://github.com/sjl/badwolf
+" Plug 'sjl/badwolf'
+
+" nord colorscheme
+" An arctic, north-bluish clean and elegant Vim color theme
+" https://github.com/arcticicestudio/nord-vim
+" Plug 'arcticicestudio/nord-vim'
+
 " vim-surround
 " Quoting/parenthesizing made easy
 " https://github.com/tpope/vim-surround
@@ -178,8 +188,12 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set colorscheme
 let g:gruvbox_italic=1
 colorscheme gruvbox
-
 let g:airline_theme='gruvbox'
+
+" colorscheme nord
+" let g:airline_theme='nord'
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
 
 " long lines as just one line (have to scroll horizontally)
 set nowrap
