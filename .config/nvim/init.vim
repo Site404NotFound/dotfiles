@@ -89,11 +89,6 @@ Plug 'terryma/vim-multiple-cursors'
 " https://github.com/w0rp/ale
 Plug 'w0rp/ale'
 
-" YouCompleteMe
-" A code-completion engine for Vim
-" https://github.com/Valloric/YouCompleteMe
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
 " Deoplete
 " Dark powered asynchronous completion framework for neovim/Vim8
 " https://github.com/Shougo/deoplete.nvim
@@ -143,20 +138,36 @@ if (executable('ag'))
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe Related Configs
+" => Deoplete configuration
 """""""""""""""""""""""""""""""""""""""""""""""
 
-" disable auto_triggering ycm suggestions pane and instead
-" use semantic completion only on Ctrl+n
-" let ycm_trigger_key = '<C-n>'
-" let g:ycm_auto_trigger = 0
-" let g:ycm_key_invoke_completion = ycm_trigger_key
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
 
-" this is some arcane magic to allow cycling through the YCM options
-" with the same key that opened it.
-" See http://vim.wikia.com/wiki/Improve_completion_popup_menu for more info.
-" let g:ycm_key_list_select_completion = ['<TAB>', '<C-j>']
-" inoremap <expr> ycm_trigger_key pumvisible() ? "<C-j>" : ycm_trigger_key
+"""""""""""""""""""""""""""""""""""""""""""""""
+" => Java Complete
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+" => Neomake
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+autocmd! BufWritePost,BufEnter * Neomake
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+" => Neoformat
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup astyle
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Linter Related Configs
@@ -189,11 +200,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:gruvbox_italic=1
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
-
-" colorscheme nord
-" let g:airline_theme='nord'
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
 
 " long lines as just one line (have to scroll horizontally)
 set nowrap
