@@ -17,8 +17,6 @@ set nocp                    " Disable compatible mode
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-Plug Plugin List
-"    Minimalist Vim Plugin Manager
-"    https://github.com/junegunn/vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin()
