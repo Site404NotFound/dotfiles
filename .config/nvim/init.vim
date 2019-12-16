@@ -23,75 +23,19 @@ set nocp                    " Disable compatible mode
 
 call plug#begin()
 
-" gruvbox colorscheme
-" Retro groove color scheme for Vim
-" https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
-
-" badwolf colorscheme
-" Modern Day bright color scheme for Vim
-" https://github.com/sjl/badwolf
-" Plug 'sjl/badwolf'
-
-" nord colorscheme
-" An arctic, north-bluish clean and elegant Vim color theme
-" https://github.com/arcticicestudio/nord-vim
-" Plug 'arcticicestudio/nord-vim'
-
-" vim-surround
-" Quoting/parenthesizing made easy
-" https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
-
-" vim-polyglot
-" A solid language pack for Vim.
-" https://github.com/sheerun/vim-polyglot
 Plug 'sheerun/vim-polyglot'
-
-" neomake
-" Asynchronous linting and make framework for Neovim/Vim
-" https://github.com/neomake/neomake
 Plug 'neomake/neomake'
-
-" NERDTree
-" A tree explorer plugin for vim.
-" https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-" fzf.vim
-" A command-line fuzzy finder
-" https://github.com/junegunn/fzf
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-
-" vim-gitgutter
-" A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks
-" https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
-
-" vim-airlines
-" lean & mean status/tabline for vim that's light as air
-" https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline'
-
-" lightline
-" A light and configurable statusline/tabline plugin for Vim
-" https://github.com/itchyny/lightline.vim
-" Plug 'itchyny/lightline.vim'
-
-" vim-multiple-cursors
-" True Sublime Text style multiple selections for Vim
-" https://github.com/terryma/vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
+Plug 'w0rp/ale'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'terryma/vim-multiple-cursors'
 
-" Ale Linting Engine
-" Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
-" https://github.com/w0rp/ale
-Plug 'w0rp/ale'
-
-" Deoplete
-" Dark powered asynchronous completion framework for neovim/Vim8
-" https://github.com/Shougo/deoplete.nvim
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -101,17 +45,6 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
-" Vim Tmux Navigator
-" Seamless navigation between tmux panes and vim splits
-" https://github.com/christoomey/vim-tmux-navigator
-Plug 'christoomey/vim-tmux-navigator'
-
-" Multiple Cursors
-" True Sublime Text style multiple selections for Vim
-" https://github.com/terryma/vim-multiple-cursors
-Plug 'terryma/vim-multiple-cursors'
-
-" Update &runtimepath and initialize plugin system
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -136,38 +69,6 @@ set rtp+=/usr/local/opt/fzf
 if (executable('ag'))
     let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => Deoplete configuration
-"""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => Java Complete
-"""""""""""""""""""""""""""""""""""""""""""""""
-
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => Neomake
-"""""""""""""""""""""""""""""""""""""""""""""""
-
-autocmd! BufWritePost,BufEnter * Neomake
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => Neoformat
-"""""""""""""""""""""""""""""""""""""""""""""""
-
-augroup astyle
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Linter Related Configs
