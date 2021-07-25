@@ -7,9 +7,9 @@ set fileencoding=utf-8      " The encoding written to file
 syntax enable               " Enable syntax highlight
 set ttyfast                 " Faster redrawing
 set lazyredraw              " Only redraw when necessary
-set cursorline              " Find the current line quickly.
-set splitbelow              " Horizontal split below current
-set splitright              " Vertical split to right of current
+" set cursorline              " Find the current line quickly.
+" set splitbelow              " Horizontal split below current
+" set splitright              " Vertical split to right of current
 set noerrorbells            " Disable beeps and alerts
 set autoread                " Automatically reload file when changes are made
 set t_Co=256                " Set terminal to use 256 colors
@@ -19,8 +19,7 @@ set nocp                    " Disable compatible mode
 " => Vim-Plug Plugin List
 """""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin()
-
+call plug#begin()	" Start VimPlug Install Section
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
@@ -33,7 +32,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'w0rp/ale'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'terryma/vim-multiple-cursors'
-
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -41,9 +39,9 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1	
 
-call plug#end()
+call plug#end()		" End VimPlug Install Section
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin Related Configs
@@ -104,8 +102,8 @@ let g:airline_theme='gruvbox'
 set nowrap
 
 " line numbers
-set number
-set relativenumber
+" set number
+" set relativenumber
 
 " show the status line all the time
 set laststatus=2
@@ -132,19 +130,19 @@ set guioptions-=L
 " dont use arrowkeys
 " Assigns arrow keys to No Operation (NOP) in Normal, Visual, Select, and
 " Operator-pending modes
-noremap <Up>    <NOP>
-noremap <Down>  <NOP>
-noremap <Left>  <NOP>
-noremap <Right> <NOP>
+" noremap <Up>    <NOP>
+" noremap <Down>  <NOP>
+" noremap <Left>  <NOP>
+" noremap <Right> <NOP>
 
 " really, just dont
 " Assigns arrows keys to No Operation (NOP) in Insert Mode
 " TODO: I BELIEVE THE MAPPING HERE IS WHY I CAN'T DO PREVIOUS PANE IN TMUX.
 " Need to fix eventually
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
+" inoremap <Up>    <NOP>
+" inoremap <Down>  <NOP>
+" inoremap <Left>  <NOP>
+" inoremap <Right> <NOP>
 
 " copy and paste to/from Vim and the clipboard
 nnoremap <C-y> +y
@@ -173,23 +171,23 @@ nnoremap ,#     :YcmCompleter GoToReferences<CR>
 """""""""""""""""""""""""""""""""""""""""""""""
 
 " Use spaces instead of tabs
-set expandtab
+" set expandtab
 
 " Be smart when using tabs ;)
 " :help smarttab
-set smarttab
+" set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" set shiftwidth=4
+" set tabstop=4
 
 " Auto indent
 " Copy the indentation from the previous line when starting a new line
-set ai
+" set ai
 
 " Smart indent
 " Automatically inserts one extra level of indentation in some cases, and works for C-like files
-set si
+" set si
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled=1
